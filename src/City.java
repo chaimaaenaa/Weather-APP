@@ -1,21 +1,81 @@
-package src;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class City {
-    int cityId;
-    String cityName;
-    double currentTemperature;
-    double currentHumidity;
-    double currentWindSpeed;
-    public  void Create(){
+    private int cityId;
+    private String cityName;
+    private int currentTemperature;
+    private int currentHumidity;
+    private int currentWindSpeed;
 
+    public City(int cityId, String cityName, int currentTemperature, int currentHumidity, int currentWindSpeed) {
+        this.cityId = cityId;
+        this.cityName = cityName;
+        this.currentTemperature = currentTemperature;
+        this.currentHumidity = currentHumidity;
+        this.currentWindSpeed = currentWindSpeed;
     }
-    public  void Read(){
 
+    public City() {}
+
+    public int getCityId() {
+        return cityId;
     }
-    public void Update(){
 
+    public String getCityName() {
+        return cityName;
     }
-    public void Delete(){
 
+    public int getCurrentTemperature() {
+        return currentTemperature;
+    }
+
+    public int getCurrentHumidity() {
+        return currentHumidity;
+    }
+
+    public int getCurrentWindSpeed() {
+        return currentWindSpeed;
+    }
+
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public void setCurrentTemperature(int currentTemperature) {
+        this.currentTemperature = currentTemperature;
+    }
+
+    public void setCurrentHumidity(int currentHumidity) {
+        this.currentHumidity = currentHumidity;
+    }
+
+    public void setCurrentWindSpeed(int currentWindSpeed) {
+        this.currentWindSpeed = currentWindSpeed;
+    }
+
+    private static Connection getConnection() throws SQLException {
+        return DatabaseManager.getConnection();
     }
 }
+@Override
+public String toString() {
+    return "City{" +
+            "cityId=" + cityId +
+            ", cityName='" + cityName + '\'' +
+            ", currentTemperature=" + currentTemperature +
+            ", currentHumidity=" + currentHumidity +
+            ", currentWindSpeed=" + currentWindSpeed +
+            '}';
+}
+
+
+
+
+
